@@ -19,27 +19,27 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	@EventHandler
-	// отслеживание перемещения игрока
+	// РѕС‚СЃР»РµР¶РёРІР°РЅРёРµ РїРµСЂРµРјРµС‰РµРЅРёСЏ РёРіСЂРѕРєР°
 	public void move(PlayerMoveEvent event) {
-		// проверка на изменение координат игрока
+		// РїСЂРѕРІРµСЂРєР° РЅР° РёР·РјРµРЅРµРЅРёРµ РєРѕРѕСЂРґРёРЅР°С‚ РёРіСЂРѕРєР°
 		if (event.getFrom().getBlockX() != event.getTo().getBlockX()) {
-			// проверка зоны
+			// РїСЂРѕРІРµСЂРєР° Р·РѕРЅС‹
 			Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(), event.getPlayer().getLocation().getBlockZ(), event.getPlayer());
 		}
-		// проверка на изменение координат игрока
+		// РїСЂРѕРІРµСЂРєР° РЅР° РёР·РјРµРЅРµРЅРёРµ РєРѕРѕСЂРґРёРЅР°С‚ РёРіСЂРѕРєР°
 		if (event.getFrom().getBlockZ() != event.getTo().getBlockZ()) {
-			// проверка зоны
+			// РїСЂРѕРІРµСЂРєР° Р·РѕРЅС‹
 			Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(), event.getPlayer().getLocation().getBlockZ(), event.getPlayer());
 		}
 
 	}
 
-	// заход игрока
+	// Р·Р°С…РѕРґ РёРіСЂРѕРєР°
 	public void JoinEvent(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		// проверка на существование игрока в листе игроков
+		// РїСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РёРіСЂРѕРєР° РІ Р»РёСЃС‚Рµ РёРіСЂРѕРєРѕРІ
 		if (!Radiation.checkPlayer(player)) {
-			// добавление игрока в лист игроков тк его там нет
+			// РґРѕР±Р°РІР»РµРЅРёРµ РёРіСЂРѕРєР° РІ Р»РёСЃС‚ РёРіСЂРѕРєРѕРІ С‚Рє РµРіРѕ С‚Р°Рј РЅРµС‚
 			Radiation.addPlayer(player);
 		}
 	}
