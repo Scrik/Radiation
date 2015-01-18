@@ -22,10 +22,10 @@ public class Main extends JavaPlugin implements Listener {
 	public void move(PlayerMoveEvent event) {
 		
 	    if(event.getFrom().getBlockX() != event.getTo().getBlockX()){
-	    	Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(),event.getPlayer().getLocation().getBlockZ());
+	    	Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(),event.getPlayer().getLocation().getBlockZ(),event.getPlayer());
 	    }
 	    if(event.getFrom().getBlockZ() != event.getTo().getBlockZ()){
-	    	Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(),event.getPlayer().getLocation().getBlockZ());
+	    	Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(),event.getPlayer().getLocation().getBlockZ(),event.getPlayer());
 	    }
 	    
 	}
