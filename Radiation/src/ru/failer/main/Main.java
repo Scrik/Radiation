@@ -19,26 +19,27 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	@EventHandler
-	//отслеживание перемещения игрока
+	// отслеживание перемещения игрока
 	public void move(PlayerMoveEvent event) {
 		// проверка на изменение координат игрока
 		if (event.getFrom().getBlockX() != event.getTo().getBlockX()) {
-			//проверка зоны
+			// проверка зоны
 			Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(), event.getPlayer().getLocation().getBlockZ(), event.getPlayer());
 		}
 		// проверка на изменение координат игрока
 		if (event.getFrom().getBlockZ() != event.getTo().getBlockZ()) {
-			//проверка зоны
+			// проверка зоны
 			Generator.checkRadArea(event.getPlayer().getLocation().getBlockX(), event.getPlayer().getLocation().getBlockZ(), event.getPlayer());
 		}
 
 	}
-//заход игрока
+
+	// заход игрока
 	public void JoinEvent(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-	//проверка на существование игрока в листе игроков
+		// проверка на существование игрока в листе игроков
 		if (!Radiation.checkPlayer(player)) {
-			//добавление игрока в лист игроков тк его там нет
+			// добавление игрока в лист игроков тк его там нет
 			Radiation.addPlayer(player);
 		}
 	}

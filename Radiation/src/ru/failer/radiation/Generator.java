@@ -3,7 +3,7 @@ package ru.failer.radiation;
 import org.bukkit.entity.Player;
 
 public class Generator {
-	//карта чанка
+	//РєР°СЂС‚Р° С‡Р°РЅРєР°
 	public static	int mapList[] = {
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -23,30 +23,27 @@ public class Generator {
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 		};
 
-	// проверка на зараженность зоны
+	// РїСЂРѕРІРµСЂРєР° Р·Р°СЂР°Р¶РµРЅРЅРѕСЃС‚Рё РјРµСЃС‚Р°
 	public static void checkRadArea(int j, int h, Player player) {
-		// проверка на отрицательные координаты
+		// РµСЃР»Рё РїРµСЂРµРјРµРЅРЅС‹Рµ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ
 		if (j < 0) {
 			j = -j;
 		}
-		// проверка на отрицательные координаты
 		if (h < 0) {
 			h = -h;
 		}
-		// получение номера чанка
+		// РїРѕР»СѓС‡РµРЅРёРµ РЅРѕРјРµСЂР° С‡Р°РЅРєР°
 		double x = (double) j / 16;
-		int xc = (int) x; // целая часть номер чанка
-		double x2 = x - xc; // дробная часть блок чанка
+		int xc = (int) x; 
+		double x2 = x - xc;
 		x2 = x2 * 10;
-		// получение блока чанка
-		int x3 = (int) Math.ceil(x2); // блок чанка
+		int x3 = (int) Math.ceil(x2); 
 		double z = (double) h / 16;
-		int zc = (int) z; // целая часть
-		double z2 = z - zc; // дробная часть
+		int zc = (int) z; 
+		double z2 = z - zc;
 		z2 = z2 * 10;
-		// получение блока чанка
 		int z3 = (int) Math.ceil(z2);
-		// сама проверка на зараженность зоны
+		
 		if (mapList[x3 * z3] == 0) {
 			Radiation.changeRadArea(player, false, mapList[x3 * z3]);
 		} else {
