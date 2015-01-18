@@ -8,13 +8,14 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ru.failer.radiation.Generator;
+import ru.failer.radiation.Radiation;
 
 
 public class Main extends JavaPlugin implements Listener {
 	public void onEnable() {
 		System.out.println("Radiation by Failer activated!");
 		Bukkit.getPluginManager().registerEvents(this, this);
-
+		Radiation.startRadTimer();
 	}
 
 	@EventHandler
