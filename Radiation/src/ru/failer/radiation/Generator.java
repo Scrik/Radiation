@@ -3,6 +3,7 @@ package ru.failer.radiation;
 import org.bukkit.entity.Player;
 
 public class Generator {
+	//карта чанка
 	public static	int mapList[] = {
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -21,31 +22,37 @@ public class Generator {
 		0,0,0,0,0,0,2,1,1,0,0,0,0,0,0,0,
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 		};
-	public static void checkRadArea(int j,int h,Player player){
-		if(j < 0){
+
+	// проверка на зараженность зоны
+	public static void checkRadArea(int j, int h, Player player) {
+		// проверка на отрицательные координаты
+		if (j < 0) {
 			j = -j;
 		}
-		if(h < 0)
-		{
+		// проверка на отрицательные координаты
+		if (h < 0) {
 			h = -h;
 		}
-		double x = (double)j/16;
-		int xc = (int)x; //целая часть номер чанка
-		double x2 = x - xc; //дробная часть блок чанка
-		x2 = x2*10;
+		// получение номера чанка
+		double x = (double) j / 16;
+		int xc = (int) x; // целая часть номер чанка
+		double x2 = x - xc; // дробная часть блок чанка
+		x2 = x2 * 10;
+		// получение блока чанка
 		int x3 = (int) Math.ceil(x2); // блок чанка
-		double z = (double)h/16;
-		int zc = (int)z; //целая часть
-		double z2 = z - zc; //дробная часть
-		z2 = z2*10;
+		double z = (double) h / 16;
+		int zc = (int) z; // целая часть
+		double z2 = z - zc; // дробная часть
+		z2 = z2 * 10;
+		// получение блока чанка
 		int z3 = (int) Math.ceil(z2);
-		if(mapList[x3*z3]==0){		
-			Radiation.changeRadArea(player, false,mapList[x3*z3]);
+		// сама проверка на зараженность зоны
+		if (mapList[x3 * z3] == 0) {
+			Radiation.changeRadArea(player, false, mapList[x3 * z3]);
 		} else {
-			Radiation.changeRadArea(player, true,mapList[x3*z3]);
-			Radiation.setInfection(player, mapList[x3*z3] * 100);
+			Radiation.changeRadArea(player, true, mapList[x3 * z3]);
+			Radiation.setInfection(player, mapList[x3 * z3] * 100);
 		}
 
-		
 	}
 }

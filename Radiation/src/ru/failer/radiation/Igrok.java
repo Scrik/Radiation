@@ -3,8 +3,12 @@ package ru.failer.radiation;
 import org.bukkit.entity.Player;
 
 public class Igrok {
-	 Player player;
-     boolean onArea = false;
-     int infection = 0;
-     int powerArea;
+	//игрок
+	Player player;
+	// на зараженной зоне или нет
+	boolean onArea = false;
+	//полученная доза радиации
+	int infection = 0;
+	//сила зараженной зоны
+	int powerArea;
 }
