@@ -10,7 +10,7 @@ public class Radiation {
 	static ArrayList<Igrok> players = new ArrayList<Igrok>();
 	static Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Radiation");
 
-	// проверка на нахождение в зараженной местности
+	// РїСЂРѕРІРµСЂРєР° РЅР° РЅР°С…РѕР¶РґРµРЅРёРµ РІ Р·Р°СЂР°Р¶РµРЅРЅРѕР№ РјРµСЃС‚РЅРѕСЃС‚Рё
 	public static boolean onRadArea(Player player) {
 		if (players.size() >= 1) {
 			for (int i = 0; i < players.size(); i++) {
@@ -24,7 +24,7 @@ public class Radiation {
 		return false;
 	}
 
-	// проверка на существования игрока в листе игроков
+	// РїСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ РёРіСЂРѕРєР° РІ Р»РёСЃС‚Рµ РёРіСЂРѕРєРѕРІ
 	public static boolean checkPlayer(Player player) {
 		if (players.size() >= 1) {
 			for (int i = 0; i < players.size(); i++) {
@@ -36,7 +36,7 @@ public class Radiation {
 		return false;
 	}
 
-	// установка полученной дозы игрока
+	// СѓСЃС‚Р°РЅРѕРІРєР° РїРѕР»СѓС‡РµРЅРЅРѕР№ РґРѕР·С‹ РёРіСЂРѕРєР°
 	public static void setInfection(Player player, int dose) {
 		if (players.size() >= 1) {
 			for (int i = 0; i < players.size(); i++) {
@@ -47,7 +47,7 @@ public class Radiation {
 		}
 	}
 
-	// нахождение на рад. зоне смена
+	// РЅР°С…РѕР¶РґРµРЅРёРµ РЅР° СЂР°Рґ. Р·РѕРЅРµ СЃРјРµРЅР°
 	public static void changeRadArea(Player player, boolean var, int powerArea) {
 		if (players.size() >= 1) {
 			for (int i = 0; i < players.size(); i++) {
@@ -59,7 +59,7 @@ public class Radiation {
 		}
 	}
 
-	// добавление игрока в лист игроков
+	// РґРѕР±Р°РІР»РµРЅРёРµ РёРіСЂРѕРєР° РІ Р»РёСЃС‚ РёРіСЂРѕРєРѕРІ
 	public static void addPlayer(Player player) {
 		Igrok tempigrok = new Igrok();
 		tempigrok.player = player;
@@ -69,7 +69,7 @@ public class Radiation {
 		players.add(tempigrok);
 	}
 
-	// запуск главного таймера
+	// Р·Р°РїСѓСЃРє РіР»Р°РІРЅРѕРіРѕ С‚Р°Р№РјРµСЂР°
 	public static void startRadTimer() {
 		plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new Runnable() {
 			@Override
