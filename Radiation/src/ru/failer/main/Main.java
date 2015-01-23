@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,13 +36,24 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	// заход игрока
+	@EventHandler
 	public void JoinEvent(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
 		// проверка на существование игрока в листе игроков
 		if (!Radiation.checkPlayer(player)) {
 			// добавление игрока в лист игроков тк его там нет
+			System.out.println("addplayer");
 			Radiation.addPlayer(player);
 		}
+	}
+	//смерть игрока
+	@EventHandler
+	public void DeathEvent(PlayerDeathEvent event) {
+		Player player = event.getEntity().getPlayer();
+		int d = Radiation.getInfection(player);
+		d = -d;
+		//обнуление счетчика заражения
+		Radiation.setInfection(player, d);
 	}
 
 }

@@ -22,6 +22,7 @@ public class Radiation {
 			}
 		}
 		return false;
+		
 	}
 
 	// проверка на существования игрока в листе игроков
@@ -35,7 +36,17 @@ public class Radiation {
 		}
 		return false;
 	}
-
+	//получение уровня полученной дозы игроком
+	public static int getInfection(Player player) {
+		if (players.size() >= 1) {
+			for (int i = 0; i < players.size(); i++) {
+				if (players.get(i).player.equals(player)) {
+					return players.get(i).infection;
+				}
+			}
+		}
+		return 0;
+	}
 	// установка полученной дозы игрока
 	public static void setInfection(Player player, int dose) {
 		if (players.size() >= 1) {
@@ -74,12 +85,17 @@ public class Radiation {
 		plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, new Runnable() {
 			@Override
 			public void run() {
+				System.out.println("asdasd1");
+				System.out.println("asdasd1"+players.size());
 				if (players.size() >= 1) {
+					
 					for (int i = 0; i < players.size(); i++) {
 						if (players.get(i).onArea) {
 							Radiation.setInfection(players.get(i).player, players.get(i).powerArea * 100);
 						}
 						if (players.get(i).infection > 1000) {
+							System.out.println("asdasd");
+							//TODO подсчет дамага
 							players.get(i).player.damage((double) players.get(i).infection / 100.0);
 						}
 					}
@@ -88,5 +104,7 @@ public class Radiation {
 		}, 0L, 400L);
 
 	}
+	
+	
 
 }

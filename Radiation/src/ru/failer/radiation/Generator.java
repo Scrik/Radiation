@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 
 public class Generator {
 	//карта чанка
+	static int l=0;
 	public static	int mapList[] = {
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -49,6 +50,9 @@ public class Generator {
 		} else {
 			Radiation.changeRadArea(player, true, mapList[x3 * z3]);
 			Radiation.setInfection(player, mapList[x3 * z3] * 100);
+			
+			l = l+( mapList[x3 * z3] * 100);
+			System.out.println("inf = "+l);
 		}
 
 	}
