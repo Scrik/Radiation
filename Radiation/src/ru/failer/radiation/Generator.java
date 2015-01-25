@@ -33,27 +33,28 @@ public class Generator {
 		if (h < 0) {
 			h = -h;
 		}
-		// получение номера чанка
-		double x = (double) j / 16;
-		int xc = (int) x; 
-		double x2 = x - xc;
-		x2 = x2 * 10;
-		int x3 = (int) Math.ceil(x2); 
-		double z = (double) h / 16;
-		int zc = (int) z; 
-		double z2 = z - zc;
-		z2 = z2 * 10;
-		int z3 = (int) Math.ceil(z2);
+		int x3,z3;
+		x3 = getCord(j);
+		z3 = getCord(h);
 		
 		if (mapList[x3 * z3] == 0) {
 			Radiation.changeRadArea(player, false, mapList[x3 * z3]);
 		} else {
 			Radiation.changeRadArea(player, true, mapList[x3 * z3]);
-			Radiation.setInfection(player, mapList[x3 * z3] * 100);
+			Radiation.setInfection(player, mapList[x3 * z3] * 50);
 			
-			l = l+( mapList[x3 * z3] * 100);
+			l = l+( mapList[x3 * z3] * 50);
 			System.out.println("inf = "+l);
 		}
 
+	}
+	//обработка координат
+	private static int getCord(int x) {
+		double i = (double) x / 16;
+		int xc = (int) i; 
+		double x2 = i - xc;
+		x2 = x2 * 10;
+		int x3 = (int) Math.ceil(x2);
+		return x3;
 	}
 }
